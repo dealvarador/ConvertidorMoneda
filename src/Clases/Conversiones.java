@@ -9,8 +9,6 @@ double monedaEntra;
 double monedaSale;
 double tempEntra;
 double tempSale;
-double longitudEntra;
-double longitudSale;
 public static String simboloMoneda;
 public static String NombreMoneda;
 public static double valorMoneda;
@@ -37,10 +35,6 @@ public static void setNombreTemp(String nombreTemp) {
 }
 public static String simboloTemp;
 public static String nombreTemp;
-
-
-
-
 public static String getSimboloMoneda() {
 	return simboloMoneda;
 }
@@ -89,25 +83,11 @@ public double getTempSale() {
 public void setTempSale(double tempSale) {
 	this.tempSale = tempSale;
 }
-public double getLongitudEntra() {
-	return longitudEntra;
-}
-public void setLongitudEntra(double longitudEntra) {
-	this.longitudEntra = longitudEntra;
-}
-public double getLongitudSale() {
-	
-	return longitudSale;
-}
-public void setLongitudSale(double longitudSale) {
-	this.longitudSale = longitudSale;
-}
 public double ConvertirMoneda(double entrada, double comparador) throws ExcepcionError{
 	if (entrada <= 0) {
 		throw new ExcepcionError("Datos Inválidos");
 	}
-	return this.monedaSale = entrada * comparador;
-	
+	return this.monedaSale = entrada * comparador;	
 }
 public double ConvertirTemperatura(String TipoConvTemp, double entrada) throws ExcepcionError{
 	switch (TipoConvTemp) {
@@ -125,7 +105,6 @@ public double ConvertirTemperatura(String TipoConvTemp, double entrada) throws E
 		return this.tempSale = (entrada - 273.15) * 9/5 + 32;		
 	}
 	return this.tempSale;	
-	
 }
 
 
