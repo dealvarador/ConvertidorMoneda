@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,7 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import Clases.Conversiones;
 import Clases.ExcepcionError;
-import Clases.Valores;
 
 public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 
@@ -24,10 +22,6 @@ public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 	private JTextField txtCantidad;
 	JButton btnCancelar;
 	JButton btnOk;
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,10 +34,6 @@ public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrmEntradaTemperatura() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		iniciarComponentes();
@@ -51,7 +41,6 @@ public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 
 		setResizable(false);
 		setLocationRelativeTo(null);
-
 	}
 
 	private void iniciarComponentes() {
@@ -113,9 +102,6 @@ public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 			}else {
 				JOptionPane.showMessageDialog(null, "El campo no debe estar vacio o con letras");
 			}
-
-			
-
 		}
 
 		if (btnCancelar == e.getSource()) {
@@ -148,8 +134,7 @@ public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 				JOptionPane.YES_NO_CANCEL_OPTION);
 		switch (respuesta) {
 		case JOptionPane.YES_OPTION:
-			this.dispose();
-			// txtCantidad.setText("");
+			this.dispose();			
 			FrmSeleccionTemperatura conversionMonedaFrame = new FrmSeleccionTemperatura();
 			conversionMonedaFrame.setVisible(true); 
 			break;
@@ -175,7 +160,6 @@ public class FrmEntradaTemperatura extends JFrame implements ActionListener {
 					"Son: " +  (convertir.ConvertirTemperatura(tipo,Entra) + " " + Simbolo + " -> " + nombre));
 
 		} catch (ExcepcionError e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}

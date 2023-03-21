@@ -20,10 +20,6 @@ public class FrmMenuPrincipal extends JFrame implements ActionListener{
 	JComboBox cboOpciones;
 	JLabel lblOpciones;
 	 String seleccion;
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,17 +32,12 @@ public class FrmMenuPrincipal extends JFrame implements ActionListener{
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrmMenuPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		iniciarComponentes();
 		setTitle("Menu");
 		setResizable(false);
 		setLocationRelativeTo(null);
-
 	}
 
 	private void iniciarComponentes() {
@@ -78,22 +69,18 @@ public class FrmMenuPrincipal extends JFrame implements ActionListener{
 		    }
 		});
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (cboOpciones == e.getSource()) {
-			if (seleccion == "Conversion de Moneda") {
-				//JOptionPane.showMessageDialog(null, "Conversion de Moneda");
+			if (seleccion == "Conversion de Moneda") {			
 				 FrmSeleccionMoneda conversionMonedaFrame = new FrmSeleccionMoneda();
-		            conversionMonedaFrame.setVisible(true); // Mostrar el ConversionMonedaFrame
+		            conversionMonedaFrame.setVisible(true); 
 		            this.setVisible(false);
 			} else if (seleccion == "Conversion de Temperatura") {
 				FrmSeleccionTemperatura conversionMonedaFrame = new FrmSeleccionTemperatura();
-		            conversionMonedaFrame.setVisible(true); // Mostrar el ConversionMonedaFrame
+		            conversionMonedaFrame.setVisible(true);
 		            this.setVisible(false);
 			} 
-
 		}
 	}
-
 }

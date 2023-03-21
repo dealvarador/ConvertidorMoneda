@@ -1,10 +1,5 @@
 package Clases;
-import Clases.ListasyValores.Moneda;
-
-
-
-public class Conversiones{
-	
+public class Conversiones{	
 double monedaEntra;
 double monedaSale;
 double tempEntra;
@@ -13,7 +8,6 @@ public static String simboloMoneda;
 public static String NombreMoneda;
 public static double valorMoneda;
 public static String tipoMoneda;
-
 public static String TipoConverTemp;
 public static String getTipoConverTemp() {
 	return TipoConverTemp;
@@ -106,6 +100,4 @@ public double ConvertirTemperatura(String TipoConvTemp, double entrada) throws E
 	}
 	return this.tempSale;	
 }
-
-
 }

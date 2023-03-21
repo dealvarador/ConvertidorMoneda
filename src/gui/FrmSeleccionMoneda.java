@@ -14,11 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Clases.Conversiones;
-import Clases.ListasyValores;
-import Clases.ListasyValores.Moneda;
-import Clases.Valores;
+import Clases.MonedasArray;
+import Clases.MonedasArray.Moneda;
 
 public class FrmSeleccionMoneda extends JFrame implements ActionListener {
 
@@ -26,10 +24,6 @@ public class FrmSeleccionMoneda extends JFrame implements ActionListener {
 	JComboBox<String> cboOpciones;
 	JLabel lblOpciones;
 	Moneda monedaSeleccionada;
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,10 +36,6 @@ public class FrmSeleccionMoneda extends JFrame implements ActionListener {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrmSeleccionMoneda() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		iniciarComponentes();
@@ -53,7 +43,6 @@ public class FrmSeleccionMoneda extends JFrame implements ActionListener {
 
 		setResizable(false);
 		setLocationRelativeTo(null);
-
 	}
 
 	private void iniciarComponentes() {
@@ -75,13 +64,11 @@ public class FrmSeleccionMoneda extends JFrame implements ActionListener {
 		cboOpciones.setBounds(10, 36, 280, 22);
 		cboOpciones.addActionListener(this);
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
-		for (Moneda moneda : ListasyValores.lista) {
+		for (Moneda moneda : MonedasArray.listaMonedas) {
 			modelo.addElement(moneda.getTipo());
 		}
 		cboOpciones.setModel(modelo);
 		panelPrincipal.add(cboOpciones);
-
-		//Conversiones.setTipoMoneda(cboOpciones.getSelectedItem().toString());
 		cboOpciones.addItemListener(event -> {
 			if (event.getStateChange() == ItemEvent.SELECTED) {
 			}
@@ -94,7 +81,7 @@ public class FrmSeleccionMoneda extends JFrame implements ActionListener {
 		if (cboOpciones == e.getSource()) {
 			
 			int indiceSeleccionado = cboOpciones.getSelectedIndex();
-			monedaSeleccionada = (ListasyValores.lista.get(indiceSeleccionado));
+			monedaSeleccionada = (MonedasArray.listaMonedas.get(indiceSeleccionado));
 			Conversiones.setTipoMoneda(monedaSeleccionada.getTipo());
 			Conversiones.setValorMoneda(monedaSeleccionada.getNumero());
 			Conversiones.setNombreMoneda(monedaSeleccionada.getNombreMoneda());

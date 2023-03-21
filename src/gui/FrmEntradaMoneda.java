@@ -1,12 +1,10 @@
 package gui;
-
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,18 +14,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import Clases.Conversiones;
 import Clases.ExcepcionError;
-import Clases.Valores;
 
 public class FrmEntradaMoneda extends JFrame implements ActionListener {
-
 	private JPanel contentPane;
 	private JTextField txtCantidad;
 	JButton btnCancelar;
 	JButton btnOk;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,10 +33,6 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrmEntradaMoneda() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		iniciarComponentes();
@@ -51,17 +40,14 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 
 		setResizable(false);
 		setLocationRelativeTo(null);
-
 	}
 
 	private void iniciarComponentes() {
 		setBounds(100, 100, 373, 136);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
 		JLabel lblTexto = new JLabel("Ingrese la cantidad de dinero que desea convertir:");
 		lblTexto.setBounds(61, 11, 285, 14);
 		contentPane.add(lblTexto);
@@ -94,14 +80,10 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 				}
 			}
 		});
-
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		// if (!Texto.isEmpty() && Texto.isNumeric()) {
-
 		if (btnOk == e.getSource()) {
 			Conversiones convertir = new Conversiones();
 			String Texto = txtCantidad.getText();
@@ -113,9 +95,6 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 			}else {
 				JOptionPane.showMessageDialog(null, "El campo no debe estar vacio o con letras");
 			}
-
-			
-
 		}
 
 		if (btnCancelar == e.getSource()) {
@@ -123,7 +102,6 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 			conversionMonedaFrame.setVisible(true); 
 			this.setVisible(false);
 		}
-
 	}
 
 	public boolean esNumerico(String texto) {
@@ -148,8 +126,7 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 				JOptionPane.YES_NO_CANCEL_OPTION);
 		switch (respuesta) {
 		case JOptionPane.YES_OPTION:
-			this.dispose();
-			// txtCantidad.setText("");
+			this.dispose();			
 			FrmSeleccionMoneda conversionMonedaFrame = new FrmSeleccionMoneda();
 			conversionMonedaFrame.setVisible(true); 
 			break;
@@ -164,7 +141,6 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 			System.exit(0);
 			break;
 		}
-
 	}
 
 	private void conversionMetodo(String Simbolo, double Entra, double Sale, String Moneda) {

@@ -1,38 +1,26 @@
 package gui;
-
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.util.ArrayList;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Clases.Conversiones;
-import Clases.ListasyValores;
-import Clases.ListasyValores.Moneda;
-import Clases.Temperaturas;
-import Clases.Temperaturas.Temperatura;
-import Clases.Valores;
-
+import Clases.MonedasArray.Moneda;
+import Clases.TemperaturasArray;
+import Clases.TemperaturasArray.Temperaturas;
 public class FrmSeleccionTemperatura extends JFrame implements ActionListener {
 
 	private JPanel panelPrincipal;
 	JComboBox<String> cboOpciones;
 	JLabel lblOpciones;
 	Moneda monedaSeleccionada;
-	Temperatura tempSeleccionada;
-
-	/**
-	 * Launch the application.
-	 */
+	Temperaturas tempSeleccionada;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,21 +34,15 @@ public class FrmSeleccionTemperatura extends JFrame implements ActionListener {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FrmSeleccionTemperatura() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		iniciarComponentes();
 		setTitle("Temperaturas");
-
 		setResizable(false);
 		setLocationRelativeTo(null);
-
 	}
 
 	private void iniciarComponentes() {
-
 		setBounds(100, 100, 328, 172);
 		panelPrincipal = new JPanel();
 		panelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,13 +60,11 @@ public class FrmSeleccionTemperatura extends JFrame implements ActionListener {
 		cboOpciones.setBounds(10, 36, 280, 22);
 		cboOpciones.addActionListener(this);
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
-		for (Temperatura temp : Temperaturas.ListaTemp) {
+		for (Temperaturas temp : TemperaturasArray.ListaTemp) {
 			modelo.addElement(temp.getTipo());
 		}
 		cboOpciones.setModel(modelo);
 		panelPrincipal.add(cboOpciones);
-
-		//Conversiones.setTipoMoneda(cboOpciones.getSelectedItem().toString());
 		cboOpciones.addItemListener(event -> {
 			if (event.getStateChange() == ItemEvent.SELECTED) {
 			}
@@ -94,11 +74,9 @@ public class FrmSeleccionTemperatura extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (cboOpciones == e.getSource()) {
-			
+		if (cboOpciones == e.getSource()) {			
 			int indiceSeleccionado = cboOpciones.getSelectedIndex();
-			tempSeleccionada = (Temperaturas.ListaTemp.get(indiceSeleccionado));
-		
+			tempSeleccionada = (TemperaturasArray.ListaTemp.get(indiceSeleccionado));		
 			Conversiones.setTipoConverTemp(tempSeleccionada.getTipo());
 			Conversiones.setNombreTemp(tempSeleccionada.getNombre());
 			Conversiones.setSimboloTemp(tempSeleccionada.getSimbolo());
@@ -107,5 +85,4 @@ public class FrmSeleccionTemperatura extends JFrame implements ActionListener {
 			this.setVisible(false);
 		}
 	}
-
 }
