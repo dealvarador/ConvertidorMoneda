@@ -120,7 +120,7 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 
 		if (btnCancelar == e.getSource()) {
 			FrmSeleccionMoneda conversionMonedaFrame = new FrmSeleccionMoneda();
-			conversionMonedaFrame.setVisible(true); // Mostrar el ConversionMonedaFrame
+			conversionMonedaFrame.setVisible(true); 
 			this.setVisible(false);
 		}
 
@@ -174,8 +174,7 @@ public class FrmEntradaMoneda extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(null,
 					"Tienes: " + Simbolo + " " + (convertir.ConvertirMoneda(Entra, Sale) + " " + Moneda));
 
-		} catch (ExcepcionError e1) {
-			// TODO Auto-generated catch block
+		} catch (ExcepcionError e1) {		
 			e1.printStackTrace();
 		}
 	}

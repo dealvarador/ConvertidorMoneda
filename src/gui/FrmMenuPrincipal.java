@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 
-public class FrmMenuPrincial extends JFrame implements ActionListener{
+public class FrmMenuPrincipal extends JFrame implements ActionListener{
 
 	private JPanel panelPrincipal;
 	JComboBox cboOpciones;
@@ -28,7 +28,7 @@ public class FrmMenuPrincial extends JFrame implements ActionListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmMenuPrincial frame = new FrmMenuPrincial();
+					FrmMenuPrincipal frame = new FrmMenuPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class FrmMenuPrincial extends JFrame implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public FrmMenuPrincial() {
+	public FrmMenuPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		iniciarComponentes();
 		setTitle("Menu");

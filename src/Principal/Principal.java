@@ -1,9 +1,14 @@
 
 package Principal;
+
+import gui.FrmMenuPrincipal;
+import gui.FrmSeleccionMoneda;
+
 //import javax.swing.JOptions;
 public class Principal {
 public static void main(String[] args) {
-	Aplicacion miAplicacion = new Aplicacion();
+FrmMenuPrincipal conversionMonedaFrame = new FrmMenuPrincipal();
+	conversionMonedaFrame.setVisible(true);
 	 
 }
 }
